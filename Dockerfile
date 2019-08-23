@@ -2,7 +2,6 @@ FROM alpine:edge
 
 VOLUME /root
 
-ADD .spacemacs /root
 RUN apk update && \
-    apk add git bash font-util emacs && \
-    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+    apk add coreutils git bash font-util emacs openjdk8 curl && \
+    curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -o /usr/bin/lein && chmod +x /usr/bin/lein
